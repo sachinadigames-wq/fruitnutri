@@ -32,11 +32,7 @@ export default function App() {
       setData(result);
     } catch (err) {
       console.error(err);
-      if (err instanceof Error && err.message === 'API_KEY_MISSING') {
-        setError('Gemini API Key is missing. Please add GEMINI_API_KEY to your environment variables.');
-      } else {
-        setError('Could not find nutrition data for that fruit. Please try another one.');
-      }
+      setError('Could not find nutrition data for that fruit. Please try another one.');
     } finally {
       setLoading(false);
     }

@@ -17,12 +17,6 @@ export interface FruitNutrition {
 }
 
 export async function getFruitNutrition(fruitName: string): Promise<FruitNutrition> {
-  const apiKey = process.env.GEMINI_API_KEY;
-  
-  if (!apiKey || apiKey === "MY_GEMINI_API_KEY") {
-    throw new Error("API_KEY_MISSING");
-  }
-
   const response = await ai.models.generateContent({
     model: "gemini-3-flash-preview",
     contents: `Provide detailed nutritional information for 100g of ${fruitName}. 
