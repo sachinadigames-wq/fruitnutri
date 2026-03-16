@@ -5,11 +5,11 @@
   --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Space Grotesk", sans-serif;
   
-  --color-vibrant-orange: #FF6B35;
-  --color-vibrant-yellow: #F7C548;
-  --color-vibrant-green: #1B998B;
-  --color-vibrant-pink: #E84855;
-  --color-vibrant-purple: #702632;
+  --color-vibrant-green: #2D6A4F;
+  --color-vibrant-light-green: #52B788;
+  --color-vibrant-accent: #95D5B2;
+  --color-vibrant-soft: #D8F3DC;
+  --color-vibrant-deep: #081C15;
 }
 
 body {
@@ -22,7 +22,7 @@ h1, h2, h3, h4 {
 }
 
 .vibrant-gradient {
-  background: linear-gradient(135deg, #FF6B35 0%, #F7C548 100%);
+  background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 100%);
 }
 
 .vibrant-card {

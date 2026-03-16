@@ -13,7 +13,7 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-const COLORS = ['#FF6B35', '#F7C548', '#1B998B', '#E84855', '#702632', '#A23E48', '#FF9F1C', '#2EC4B6'];
+const COLORS = ['#081C15', '#1B4332', '#2D6A4F', '#40916C', '#52B788', '#74C69D', '#95D5B2', '#B7E4C7'];
 
 export default function App() {
   const [query, setQuery] = useState('');
@@ -51,7 +51,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-stone-50 selection:bg-vibrant-orange/30">
+    <div className="min-h-screen bg-stone-50 selection:bg-vibrant-green/30">
       {/* Header Section */}
       <header className="vibrant-gradient pt-16 pb-32 px-6 text-white text-center relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
@@ -84,7 +84,7 @@ export default function App() {
             <button
               type="submit"
               disabled={loading}
-              className="absolute right-3 top-3 bottom-3 px-8 rounded-full bg-white text-vibrant-orange font-bold hover:bg-stone-100 transition-colors disabled:opacity-50 flex items-center gap-2 shadow-lg"
+              className="absolute right-3 top-3 bottom-3 px-8 rounded-full bg-white text-vibrant-green font-bold hover:bg-stone-100 transition-colors disabled:opacity-50 flex items-center gap-2 shadow-lg"
             >
               {loading ? <Loader2 className="animate-spin" /> : <Search size={20} />}
               <span className="hidden md:inline">Analyze</span>
@@ -101,7 +101,7 @@ export default function App() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
-              className="bg-white border-2 border-vibrant-pink text-vibrant-pink p-6 rounded-3xl text-center font-bold text-lg mb-8 shadow-xl"
+              className="bg-white border-2 border-vibrant-light-green text-vibrant-green p-6 rounded-3xl text-center font-bold text-lg mb-8 shadow-xl"
             >
               {error}
             </motion.div>
@@ -113,7 +113,7 @@ export default function App() {
               animate={{ opacity: 1 }}
               className="text-center py-20"
             >
-              <div className="inline-flex p-8 rounded-full bg-vibrant-yellow/20 text-vibrant-yellow mb-6">
+              <div className="inline-flex p-8 rounded-full bg-vibrant-accent/20 text-vibrant-green mb-6">
                 <Info size={48} />
               </div>
               <h2 className="text-3xl font-bold text-stone-400">Search for a fruit to see its nutritional profile</h2>
@@ -131,7 +131,7 @@ export default function App() {
               <div className="vibrant-card p-8 md:p-12 flex flex-col md:flex-row gap-12 items-center">
                 <div className="flex-1">
                   <div className="flex items-center gap-4 mb-4">
-                    <span className="px-4 py-1 rounded-full bg-vibrant-green/10 text-vibrant-green font-bold text-sm uppercase tracking-widest">
+                    <span className="px-4 py-1 rounded-full bg-vibrant-light-green/10 text-vibrant-green font-bold text-sm uppercase tracking-widest">
                       Analysis Result
                     </span>
                     <span className="text-stone-400 font-medium">Serving: {data.servingSize}</span>
@@ -167,7 +167,7 @@ export default function App() {
                     </PieChart>
                   </ResponsiveContainer>
                   <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                    <PieChartIcon className="text-vibrant-orange mb-1" size={32} />
+                    <PieChartIcon className="text-vibrant-green mb-1" size={32} />
                     <span className="text-xs font-bold text-stone-400 uppercase tracking-tighter">Proportions</span>
                   </div>
                 </div>
@@ -178,7 +178,7 @@ export default function App() {
                 {/* Gram-wise Breakdown */}
                 <div className="vibrant-card p-8">
                   <div className="flex items-center gap-3 mb-8">
-                    <div className="p-3 rounded-2xl bg-vibrant-orange/10 text-vibrant-orange">
+                    <div className="p-3 rounded-2xl bg-vibrant-green/10 text-vibrant-green">
                       <BarChart3 size={24} />
                     </div>
                     <h3 className="text-2xl font-bold">Gram-wise Breakdown</h3>
@@ -215,7 +215,7 @@ export default function App() {
                     {data.nutrients.sort((a, b) => b.percentage - a.percentage).map((nutrient, idx) => (
                       <div key={nutrient.name} className="group">
                         <div className="flex justify-between items-end mb-1">
-                          <span className="font-bold text-stone-700 group-hover:text-vibrant-orange transition-colors">
+                          <span className="font-bold text-stone-700 group-hover:text-vibrant-green transition-colors">
                             {nutrient.name}
                           </span>
                           <span className="text-sm font-medium text-stone-400">
