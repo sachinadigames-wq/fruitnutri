@@ -1,0 +1,30 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  
+  --color-vibrant-orange: #FF6B35;
+  --color-vibrant-yellow: #F7C548;
+  --color-vibrant-green: #1B998B;
+  --color-vibrant-pink: #E84855;
+  --color-vibrant-purple: #702632;
+}
+
+body {
+  @apply bg-stone-50 text-stone-900 antialiased;
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+}
+
+.vibrant-gradient {
+  background: linear-gradient(135deg, #FF6B35 0%, #F7C548 100%);
+}
+
+.vibrant-card {
+  @apply bg-white rounded-3xl shadow-xl border border-black/5 overflow-hidden;
+}
