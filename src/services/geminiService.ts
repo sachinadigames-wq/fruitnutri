@@ -1,7 +1,5 @@
 import { GoogleGenAI, Type } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || "" });
-
 export interface NutrientData {
   name: string;
   amount: number; // in grams or milligrams
@@ -17,6 +15,7 @@ export interface FruitNutrition {
 }
 
 export async function getFruitNutrition(fruitName: string): Promise<FruitNutrition> {
+  const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || "" });
   const response = await ai.models.generateContent({
     model: "gemini-3-flash-preview",
     contents: `Provide detailed nutritional information for 100g of ${fruitName}. 
@@ -50,8 +49,14 @@ export async function getFruitNutrition(fruitName: string): Promise<FruitNutriti
   });
 
   if (!response.text) {
+    console.error("Gemini API returned an empty response:", response);
     throw new Error("No response from AI");
   }
 
-  return JSON.parse(response.text) as FruitNutrition;
+  try {
+    return JSON.parse(response.text) as FruitNutrition;
+  } catch (parseError) {
+    console.error("Failed to parse Gemini response as JSON:", response.text);
+    throw new Error("Invalid data format received from AI");
+  }
 }

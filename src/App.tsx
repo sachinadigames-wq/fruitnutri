@@ -30,9 +30,21 @@ export default function App() {
     try {
       const result = await getFruitNutrition(query);
       setData(result);
-    } catch (err) {
-      console.error(err);
-      setError('Could not find nutrition data for that fruit. Please try another one.');
+    } catch (err: any) {
+      console.error('Search error:', err);
+      let errorMessage = 'Could not find nutrition data for that fruit.';
+      
+      if (err?.message?.includes('API_KEY_INVALID')) {
+        errorMessage = 'The provided API key is invalid. Please check your configuration.';
+      } else if (err?.message?.includes('User location is not supported')) {
+        errorMessage = 'Gemini API is not available in your current location.';
+      } else if (err?.message?.includes('quota')) {
+        errorMessage = 'API quota exceeded. Please try again later.';
+      } else if (err?.message) {
+        errorMessage = err.message;
+      }
+      
+      setError(`${errorMessage} Please try another one.`);
     } finally {
       setLoading(false);
     }
