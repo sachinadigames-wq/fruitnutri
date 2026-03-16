@@ -82,14 +82,14 @@ export default function App() {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-6xl mx-auto px-6 -mt-16 pb-24">
+      <main className="max-w-6xl mx-auto px-6 -mt-16 pb-24 relative z-20">
         <AnimatePresence mode="wait">
           {error && (
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
-              className="bg-vibrant-pink/10 border-2 border-vibrant-pink text-vibrant-pink p-6 rounded-3xl text-center font-bold text-lg mb-8"
+              className="bg-white border-2 border-vibrant-pink text-vibrant-pink p-6 rounded-3xl text-center font-bold text-lg mb-8 shadow-xl"
             >
               {error}
             </motion.div>
